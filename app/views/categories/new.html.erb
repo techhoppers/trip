@@ -1,0 +1,10 @@
+<h2>Create Category</h2>
+<%= form_for @category do |f| %>
+  <p>
+    <%= f.label :name, :class => "inputLabel" %>
+    <%= f.text_field :name, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.submit "Create", :class => "inputButton fleft" %>
+  </p>
+<% end %>

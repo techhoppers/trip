@@ -1,0 +1,13 @@
+<h2>Categories</h2>
+<%= form_for @category do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "inputBox" %>
+    <%= f.submit "Create", :class => "inputButton fnone" %>
+  </p>
+<% end %>
+<br class="clear"/>
+<% @categories.each_with_index do |category, index| %>
+  <p><%= index + 1 %>. <%= category.name %> <%= link_to "Edit", edit_category_path(category) %> <%= link_to "Destroy", category_path(category), :method => :delete, :confirm => "Are you sure?" %></p>
+<% end %>
+

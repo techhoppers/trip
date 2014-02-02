@@ -1,0 +1,15 @@
+<h2>Edit State</h2>
+<%= form_for @state, :method => :put do |f| %>
+  <p>
+    <%= f.label :name, :class => "inputLabel" %>
+    <%= f.text_field :name, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.label :country_id, :class => "inputLabel" %>
+    <%= f.select :country_id, options_for_select(Country.all.map{|x| [x.name,x.id]}),{:prompt => "Choose Country"}, :class => "selectBox" %>
+  </p>
+  <p>
+    <%= f.submit "Update", :class => "inputButton fleft" %> 
+    &nbsp;<%= button_to_function "Back", "history.back()",:class => "inputButton fnone" %>
+  </p>
+<% end %>

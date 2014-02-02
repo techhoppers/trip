@@ -1,0 +1,13 @@
+<h2>Counrties</h2>
+<%= form_for @country do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "inputBox" %>
+    <%= f.submit "Create", :class => "inputButton fnone" %>
+  </p>
+<% end %>
+<br class="clear"/>
+<% @countries.each_with_index do |country, index| %>
+  <p><%= index + 1 %>. <%= country.name %> <%= link_to "Edit", edit_country_path(country) %> <%= link_to "Destroy", country_path(country), :method => :delete, :confirm => "Are you sure?" %></p>
+<% end %>
+

@@ -1,0 +1,5 @@
+<% if @distance.kind_of?(Hash) && @distance.present? %>
+  <b><%= @distance[:distance] %></b> (<b><%= @distance[:hours] %></b> approx.)
+<% else %>
+  Invalid Source
+<% end %>

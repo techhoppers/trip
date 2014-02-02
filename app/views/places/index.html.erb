@@ -1,0 +1,12 @@
+<div id="box1" class="placesList">
+  <% @places.each do |place| %>
+    <div class="placeDetail">
+      <h2><%= link_to place.title, detail_path(place) %></h2>
+      <%= link_to image_tag(place.assets.present? ? place.assets.first.image.url(:small) : "no_photo.gif", :class => "left round"), place_path(place) %>
+      <p>
+        <%= truncate(place.short_description, :length => 500).html_safe %> <button class="jquery-ui-button" href="<%= place_path(place) %>" style="font-size: 10px;">More</button>
+      </p>
+      <br class="clear"/>
+    </div>
+  <% end if @places%>
+</div>

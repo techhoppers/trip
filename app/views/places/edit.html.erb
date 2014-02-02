@@ -1,0 +1,53 @@
+<%= tinymce_assets %>
+<h2>Edit Place</h2>
+<%= form_for @place, :method => :put do |f| %>
+  <p>
+    <%= f.label :title, :class => "inputLabel" %>
+    <%= f.text_field :title, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.label :category_id, :class => "inputLabel" %>
+    <%= f.select :category_id, options_for_select(Category.all.map{|x| [x.name,x.id]}),{:prompt => "Choose Category"}, :class => "selectBox" %>
+  </p>
+  <p>
+    <%= f.label :city_id, :class => "inputLabel" %>
+    <%= f.select :city_id, options_for_select(City.all.map{|x| [x.name,x.id]}),{:prompt => "Choose City"}, :class => "selectBox" %>
+  </p>
+  <p>
+    <%= f.label :tag_list, :class => "inputLabel" %>
+    <%= f.text_field :tag_list, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.label :latitude, :class => "inputLabel" %>
+    <%= f.text_field :latitude, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.label :longitude, :class => "inputLabel" %>
+    <%= f.text_field :longitude, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.label :short_description, :class => "inputLabel" %>
+    <%= f.text_area :short_description, :class => "textareaBox"  %>
+  </p>
+  <p>
+    <%= f.label :description, :class => "inputLabel" %>
+    <%= f.text_area :description, :class => "tinymce textareaBox"  %>
+  </p>
+  <p>
+    <% @place.assets.each do |asset| %>
+      <%= image_tag(asset.image.url(:thumb)) unless asset.new_record?%>
+    <% end %>
+  </p>
+  <p>
+    <%= f.fields_for :assets do |asset| %>
+      <% if asset.object.new_record? %>
+        <%= asset.text_field :title, :class => "inputBox" %> &nbsp; <%= asset.file_field :image, :class => "filefieldBox" %>
+        <br class="clear"/>
+        <br class="clear"/>
+      <% end %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.submit "Update", :class => "inputButton fleft" %>
+  </p>
+<% end %>

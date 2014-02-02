@@ -1,0 +1,439 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+/*
+        Greenery by Free Website Templates
+        www.freewebsitetemplat.es
+        Photos by Fotogrph http://fotogrph.com/
+        Released under the Creative Commons Attribution 3.0 License.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #234e00;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#dialog-form input.text { margin-bottom:12px; width:95%; padding: .4em; }
+#dialog-form  fieldset { padding:0; border:0; margin-top:25px; }
+#dialog-form  .ui-dialog .ui-state-error { padding: .3em; }
+
+body {
+    font-size: 80%;
+    line-height: 1.75em;
+    background: #234e00 url("bg.jpg") repeat-x top left;
+    color: #deedcf;
+}
+
+body,input {
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+br.clear {
+    clear: both;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4 {
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 2.25em;
+}
+
+h2,h3,h4 {
+    margin-bottom: 1em;
+    font-family: Cabin, sans-serif;
+    color: #fff;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+img{border: none;}
+
+img.left {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+img.top {
+    margin: 5px 0 20px 0;
+}
+
+label.inputLabel {
+    display: block;
+    margin: 0 0 6px 0;
+}
+
+p {
+    margin-bottom: 0.8em;
+}
+
+ul {
+    margin-bottom: 1.5em;
+}
+
+ul h4 {
+    margin-bottom: 0.35em;
+}
+
+.form {
+    margin: 0 0 30px 0;
+    padding: 0 0 10px;
+}
+
+.inputBox {
+    padding: 8px;
+    width: 270px;
+    border: 1px solid #ccc;
+    background: #d5fc94;
+}
+
+.filefieldBox{
+    width:155px;
+    height:26px;
+    margin-right:85px;
+    font-size:16px;
+    border:solid 1px #ccc;
+    background: #d5fc94;
+}
+
+.textareaBox {
+    padding: 8px;
+    width: 670px;
+    border: 1px solid #ccc;
+    background: #d5fc94;
+}
+
+
+.selectBox{
+    width: 285px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    background: #d5fc94;
+}
+
+.inputButton {
+    padding: 8px;
+    float: right;
+    background: #234e00;
+    border: none;
+    color: #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.round {
+    border-radius: 10px;
+}
+
+#banner {
+    position: relative;
+    padding: 30px;
+    height: 240px;
+    width: 1120px;
+    margin: 0 0 0 0;
+    background: #fff;
+    border-radius: 10px;
+}
+
+#banner img{
+    border-radius: 10px;
+}
+
+#box1 {
+    margin: 0 0 20px 0;
+    overflow: hidden;
+}
+
+
+#content {
+    width: 740px;
+    float: left;
+    padding: 30px;
+    background: #fff;
+    color: #292929;
+    border-radius: 10px;
+}
+
+#content h2, #content h3, #content h4 {
+    color: #0d0d0d;
+}
+
+#copyright {
+    margin: 0 0 0 0;
+    padding: 40px 0 30px 0;
+    text-align: center;
+}
+
+#copyright a {
+    color: #deedcf;
+}
+
+#header {
+    position: relative;
+    padding: 30px;
+    height: 80px;
+    width: 1120px;
+}
+
+#logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 145px;
+    line-height: 145px;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#logo h1 {
+    font-size: 2.5em;
+    font-family: Cabin, sans-serif;
+}
+
+#main {
+    position: relative;
+    padding: 0;
+    width: 1180px;
+    margin: 20px 0 20px 0;
+}
+
+#main .sectionList {
+    list-style: none;
+    padding-left: 0;
+}
+
+#main .sectionList li {
+    clear: both;
+    padding: 20px 0 20px 0;
+}
+
+#main ul {
+    list-style: none;
+}
+
+#nav {
+    position: absolute;
+    right: 30px;
+    height: 64px;
+    line-height: 64px;
+    top: 40px;
+    font-family: Cabin, sans-serif;
+}
+
+#nav a {
+    text-decoration: none;
+    color: #ebf4e2;
+}
+
+#nav .active a {
+    background: #D5FC94;
+    padding: 8px;
+    color: #000;
+    border-radius: 10px;
+}
+
+#nav ul {
+    list-style: none;
+    padding: 0 15px 0 15px;
+}
+
+#nav ul li {
+    display: inline;
+    padding: 0 10px 0 10px;
+}
+
+#nav ul li a:hover{
+    color: #000;
+}
+
+#outer {
+    position: relative;
+    width: 1180px;
+    margin: 0 auto 0 auto;
+}
+
+#search input.button {
+    margin-left: 1em;
+    border: 0;
+    color: #fff;
+    background: #7720d5;
+    padding: 5px;
+    font-family: Cabin, sans-serif;
+}
+
+#search input.text {
+    border: dotted 1px #92c260;
+    padding: 5px;
+}
+
+.sidebar {
+    width: 300px;
+    margin: 10px 0 0 820px;
+    padding: 30px;
+    background: #fff;
+    color: #292929;
+    border-radius: 10px;
+}
+.sidebar h2, .sidebar h3, .sidebar h4 {color: #000;}
+#flash_notice {
+    background: none repeat scroll 0 0 #DCD467;
+    color: blue;
+    height: 35px;
+    padding-top: 5px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    font-size: 16px;
+    width: 100%;
+}
+
+#close_button{position: absolute;right: 20px;cursor: pointer;}
+
+.fleft {float: left;}
+.fnone {float: none;}
+.fright {float: right;}
+#gallery li {float: left;padding-left: 10px;}
+#gallery li:first-child {padding-left: 0px;}
+.placesList a {text-decoration: none;}
+
+#placeMap{
+    height: 350px;
+    width: 740px;
+    margin: 20px auto;
+}
+
+span.top_link{
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.placeholder
+{
+    color: #aaa;
+}
+
+#distanceValue{
+    font-size: 14px;
+}
+
+
+/*------------Autocomplete--------------*/
+
+
+
+.ui-menu .ui-menu-item{
+    text-align: left;  
+    font-weight: normal;
+}
+.ui-menu .ui-menu-item a.ui-state-hover{
+    border: 1px solid red; 
+    background: #FFBFBF; 
+    color: black;
+    font-weight:bold;
+}
+
+/*------------Autocomplete--------------*/
+
+p.review {
+    padding: 10px;
+    background: #efefef;
+    border-radius: 8px;
+    text-align: justify;
+}
+
+p.review i{
+    font-family: Times New Roman;
+}
+
+div.placeDetail{
+    border-bottom: 1px dotted #000;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+div.placeDetail:last-child{
+    border-bottom: none;
+}
+
+a.galleryLink{
+    background: url('camera_icon.gif') no-repeat left center;
+    padding-left: 23px;
+    float: left;
+    padding-right: 15px;
+}
+
+a.mapLink{
+    background: url('map_icon.png') no-repeat left center;
+    padding-left: 23px;
+    float: left;
+    padding-right: 15px;
+}
+
+a.reviewLink{
+    background: url('feedbackIcon.png') no-repeat left center;
+    padding-left: 23px;
+    float: left;
+    padding-right: 15px;
+}
+
+a.facebookLink{
+    background: url('facebook_icon.png') no-repeat left center;
+    padding-left: 23px;
+    float: left;
+    padding-right: 15px;
+}
+
+a.twitterLink{
+    background: url('twitter_icon.gif') no-repeat left center;
+    padding-left: 23px;
+    float: left;
+    padding-right: 15px;
+}
+
+a.emailLink{
+    background: url('email_icon.gif') no-repeat left center;
+    padding-left: 23px;
+    float: left;
+    padding-right: 15px;
+}
+
+.distanceBox{width: 220px;}

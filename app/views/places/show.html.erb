@@ -1,0 +1,80 @@
+<% content_for :head do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<% end %>
+<% content_for :title, @place.to_title %>
+<h2><%= @place.title %></h2>
+<p> 
+  <%= text_field_tag "source_location", "", :class => "inputBox distanceBox", :placeholder => "Enter your location" %> 
+  <%= button_to_function "Get Distance", "", :class => "inputButton fnone", :id => "getDistance", :action => get_distance_place_path(@place) %>
+  <%= button_to_function "Reset", "$('#source_location').val('');$('#distanceValue').html('');", :class => "inputButton fnone" %>
+  <span id="distanceValue"></span>
+<div id="test" class="gmap3"></div>
+</p>
+<p>
+  <%= link_to "Gallery", {:anchor => "galleryLink"}, :class => "galleryLink" if @place.assets.present? %>  
+  <%= link_to "Map", {:anchor => "mapLink"}, :class => "mapLink" if @place.latitude.present? && @place.longitude.present? %> 
+  <%= link_to "User Reviews", {:anchor => "review"}, :class => "reviewLink" %>
+  <%= link_to "Share via Facebook", {:anchor => "review"}, :class => "facebookLink" %>
+  <%= link_to "Share via Twitter", {:anchor => "review"}, :class => "twitterLink" %>
+  <%= link_to "Share via Email", {:anchor => "review"}, :class => "emailLink" %>
+</p>
+<br class="clear"/><br class="clear"/>
+<p><%= @place.description.html_safe %></p>
+<% if @place.assets.present? %>
+  <a name="galleryLink"></a>
+  <h5>Gallery <span class="top_link"><%= link_to_function "Top", "", :class => "backtotop" %></span></h5>
+  <ul id="gallery">
+    <% @place.assets.each do |asset|  %>
+      <li>
+        <%= link_to image_tag(asset.image.url(:thumb)), asset.image.url(:original), :title => asset.title  %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<br class="clear"/>
+<% if @place.latitude.present? && @place.longitude.present? %>
+  <a name="mapLink"></a>
+  <h5 id="map">Map <span class="top_link"><%= link_to_function "Top", "", :class => "backtotop" %></span></h5>
+  <p id="placeMap"></p>
+  <%= javascript_tag do %>
+    $(function(){
+    $('#placeMap').gmap3(
+    {
+    action:'init',
+    options:{
+    center:[<%= @place.latitude %>,<%= @place.longitude %>],
+    zoom: 10
+    }
+    },
+    {
+    action: 'addMarker',
+    latLng:[<%= @place.latitude %>, <%= @place.longitude %>]
+    }
+    );
+
+    })
+  <% end %>
+<% end %>
+<a name="review"></a>
+<h5>User Reviews <span class="top_link"><%= link_to_function "Top", "", :class => "backtotop" %></span></h5>
+<br class="clear" />
+<% @reviews.each do |review| 
+  next if review.new_record?
+%>
+  <p class="review">
+    <i>Posted by <%= review.user.name rescue nil %> on <%= formatted_time(review.created_at) %></i>
+    <br class="clear" />
+    <%= review.message %>
+  </p>
+<% end %>
+<% if user_signed_in? %>
+  <p>
+    <%= form_for @review, :url => reviews_path(:place_id => @place.id) do |f| %>
+      <%= f.text_area :message, :class => "textareaBox", :rows => 10, :cols => 60, :placeholder => "Please enter your review here" %>
+      <%= f.hidden_field :user_id%>
+      <%= f.submit "Post Review", :class => "inputButton fleft" %>
+    <% end %>
+  </p>
+<% else %>
+  <button class="jquery-ui-button" href="<%= new_user_session_path %>" >Login</button> to post review
+<% end %>

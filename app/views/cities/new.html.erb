@@ -1,0 +1,14 @@
+<h2>Create City</h2>
+<%= form_for @city do |f| %>
+  <p>
+    <%= f.label :name, :class => "inputLabel" %>
+    <%= f.text_field :name, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.label :state_id, :class => "inputLabel" %>
+    <%= f.select :state_id, options_for_select(State.all.map{|x| [x.name,x.id]}),{:prompt => "Choose State"}, :class => "selectBox" %>
+  </p>
+  <p>
+    <%= f.submit "Create", :class => "inputButton fleft" %>
+  </p>
+<% end %>

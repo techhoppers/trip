@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trip Navigator <%=h yield(:title) %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= yield :head %>
+    <%= javascript_include_tag "application" %>
+    <meta name="google-site-verification" content="bUhr0Uimzilp1ixa7anNP-xzaf2VMlzevcmZktew-A8" />
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div id="outer">
+      <div id="header">
+        <div id="logo">
+          <h1><%= link_to image_tag("logo.png"), root_path %></h1>
+        </div>
+        <div id="nav">
+          <%= render "shared/navigation" %>
+          <br class="clear" />
+        </div>
+      </div>
+
+      <div id="main">
+        <div id="content">
+          <%= yield %>
+          <br class="clear" />
+        </div>
+
+        <div class="sidebar">
+          <%= render "shared/search" %>
+        </div>
+        <div class="sidebar">
+          <%= render "shared/tag_cloud" %>
+        </div>
+
+        <br class="clear" />
+      </div>
+    </div>
+    <% if flash[:notice].present? %>
+      <div id='flash_notice'><%= flash[:notice] %> <%= image_tag("close_button.png", :id => "close_button") %></div>
+    <% end %>
+    <div id="copyright">
+      Copyright 2012 <a href="http://tripnavigator.net/">Trip Navigator</a>.
+    </div>
+  </body>
+</html>

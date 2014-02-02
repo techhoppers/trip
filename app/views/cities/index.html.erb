@@ -1,0 +1,14 @@
+<h2>Cities</h2>
+<%= form_for @city do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "inputBox" %>
+    <%= f.select :state_id, options_for_select(State.all.map{|x| [x.name,x.id]}),{:prompt => "Choose State"}, :class => "selectBox" %>
+    <%= f.submit "Create", :class => "inputButton fnone" %>
+  </p>
+<% end %>
+<br class="clear"/>
+<% @cities.each_with_index do |city, index| %>
+  <p><%= index + 1 %>. <%= city.name %> <%= link_to "Edit", edit_city_path(city) %> <%= link_to "Destroy", city_path(city), :method => :delete, :confirm => "Are you sure?" %></p>
+<% end %>
+

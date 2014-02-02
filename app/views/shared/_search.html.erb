@@ -1,0 +1,18 @@
+<h3>Search</h3>
+<%= form_for :search, :url => search_places_path do |f| %>
+  <div class="form">
+    <p>
+      <%= f.label :location, :class => "inputLabel" %>
+      <%= f.text_field :location, :class => "inputBox" %>
+    </p>
+    <p>
+      <%= f.label :category_id, :class => "inputLabel" %>
+      <%= f.select :category_id, options_for_select(Category.order("name").map{|x|[x.name,x.id]}), {:prompt => "Choose Category"}, {:class => "selectBox"} %>
+    </p>
+    <p>
+    </p>
+    <p>
+      <%= f.submit "Search", :class => "inputButton fleft" %>
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h2>Edit Country</h2>
+<%= form_for @country, :method => :put do |f| %>
+  <p>
+    <%= f.label :name, :class => "inputLabel" %>
+    <%= f.text_field :name, :class => "inputBox" %>
+  </p>
+  <p>
+    <%= f.submit "Update", :class => "inputButton fleft" %> 
+    &nbsp;<%= button_to_function "Back", "history.back()",:class => "inputButton fnone" %>
+  </p>
+<% end %>

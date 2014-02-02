@@ -1,0 +1,23 @@
+#tag-cloud {
+    width: auto;
+    margin: 0;
+    padding: 1em;
+    line-height: 1.4;
+    border-radius: 12px;
+}
+
+#tag-cloud li {
+    display: inline;
+}
+
+#tag-cloud li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#tag-cloud li a:hover {
+    text-decoration: underline;
+}
+
+
